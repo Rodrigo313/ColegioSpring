@@ -3,6 +3,7 @@
  */
 package com.rodri.colegio.controladores;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.slf4j.Logger;
@@ -29,11 +30,19 @@ public class AlumnoController {
 	
 	private static final Logger logger = LoggerFactory.getLogger(AlumnoController.class);
 	
-	@GetMapping
+	@GetMapping(value = "insertarAlumnos")
 	public String formularioInsertarAlumnos(ModelMap model) {
 		Iterable<MunicipiosEntity> listaEntidadesMunicipios = municipioRepository.findAll();
 		List<ComboDTO> listaMunicipios = mapeoEntidadMunicipioComboDTO(listaEntidadesMunicipios);
-		model.addAttribute("comboMunicipios", listaMunicipios);
+		model.addAttribute("comboMunicipio", listaMunicipios);
 		return "vistas/alumnos/insertarAlumnos";
+	}
+	
+	private List<ComboDTO> mapeoEntidadMunicipioComboDTO(Iterable<MunicipiosEntity> listaEntidadesMunicipios){
+		List<ComboDTO> listaMunicipios = new ArrayList<ComboDTO>();
+		for(MunicipiosEntity m: listaEntidadesMunicipios) {
+			listaMunicipios.add(new ComboDTO(m.getIdMunicipio(), m.getNombre()));
+		}
+		return listaMunicipios;
 	}
 }

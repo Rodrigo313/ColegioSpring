@@ -14,7 +14,7 @@
 </header>
 
 <h1>Insercion de alumnos</h1>
-<%@include file="/menu.html" %>
+<%@include file="../../menu.html" %>
 
 	<div class="container">
 		<div class="form">
