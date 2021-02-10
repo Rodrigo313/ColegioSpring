@@ -12,8 +12,12 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
+import com.rodri.colegio.dao.ComboDAO;
 import com.rodri.colegio.dtos.ComboDTO;
+import com.rodri.colegio.entities.AlumnoEntity;
 import com.rodri.colegio.entities.MunicipiosEntity;
 import com.rodri.colegio.repositorios.MunicipioRepository;
 
@@ -26,23 +30,30 @@ import com.rodri.colegio.repositorios.MunicipioRepository;
 @Controller
 public class AlumnoController {
 	@Autowired
-	private MunicipioRepository municipioRepository;
+	private ComboDAO combo;
 	
 	private static final Logger logger = LoggerFactory.getLogger(AlumnoController.class);
 	
 	@GetMapping(value = "insertarAlumnos")
 	public String formularioInsertarAlumnos(ModelMap model) {
-		Iterable<MunicipiosEntity> listaEntidadesMunicipios = municipioRepository.findAll();
-		List<ComboDTO> listaMunicipios = mapeoEntidadMunicipioComboDTO(listaEntidadesMunicipios);
-		model.addAttribute("comboMunicipio", listaMunicipios);
+		
+		model.addAttribute("comboMunicipio", combo.comboMunicipios());
 		return "vistas/alumnos/insertarAlumnos";
 	}
 	
-	private List<ComboDTO> mapeoEntidadMunicipioComboDTO(Iterable<MunicipiosEntity> listaEntidadesMunicipios){
-		List<ComboDTO> listaMunicipios = new ArrayList<ComboDTO>();
-		for(MunicipiosEntity m: listaEntidadesMunicipios) {
-			listaMunicipios.add(new ComboDTO(m.getIdMunicipio(), m.getNombre()));
-		}
-		return listaMunicipios;
-	}
+	
+	
+	/*@PostMapping(value = "insertarAlumnos")
+	public String InsertarAlumno(@RequestParam(value = "id", required = false) Integer id,
+			@RequestParam("nombre") String nombre, @RequestParam(value = "municipios") Integer idMunicipio,
+			@RequestParam(value = "familiaNumerosa") Integer familiaNumerosa,
+			ModelMap model) {
+		
+		familiaNumerosa = (familiaNumerosa == null) ? 0 : 1;
+		
+		AlumnoEntity alumno = new AlumnoEntity(id, nombre, idMunicipio, familiaNumerosa);
+		
+		alumnoRepository.save(alumno);
+	}*/
+	
 }
