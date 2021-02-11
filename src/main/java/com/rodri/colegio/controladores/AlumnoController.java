@@ -51,7 +51,7 @@ public class AlumnoController {
 	@PostMapping(value = "insertarAlumnos")
 	public String InsertarAlumno(@RequestParam(value = "id", required = false) Integer id,
 			@RequestParam("nombre") String nombre, @RequestParam(value = "municipios") Integer idMunicipio,
-			@RequestParam(value = "familiaNumerosa") Integer familiaNumerosa,
+			@RequestParam(value = "familiaNumerosa",required = false) Integer familiaNumerosa,
 			ModelMap model) {
 		
 		familiaNumerosa = (familiaNumerosa == null) ? 0 : 1;
