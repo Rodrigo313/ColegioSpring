@@ -117,6 +117,6 @@ public class AlumnoController {
 			@RequestParam(value = "municipios", required = false) Integer idMunicipio, @RequestParam(value = "familiaNumerosa", required = false) String familiaNumerosa,
 			ModelMap model) {
 			alumnoRepository.deleteById(id);
-			return "vistas/alumnos/actualizarAlumnos";
+			return "vistas/alumnos/borrarAlumnos";
 	}
 }
