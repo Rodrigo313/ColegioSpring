@@ -77,4 +77,20 @@ public class AlumnoController {
 		return "vistas/alumnos/listaAlumnos";
 	}
 	
+	@PostMapping(value = "formularioborraralumnos")
+	public String borrarAlumno(@RequestParam(value = "id") Integer id, ModelMap model) {
+		alumnoRepository.deleteById(id);
+		return "vistas/alumnos/borrarAlumnos";
+	}
+	
+	@PostMapping(value = "formularioactualizaralumnos")
+	public String actualizarAlumno(@RequestParam(value = "id", required = false) Integer id, @RequestParam("nombre") String nombre,
+			@RequestParam(value = "municipios") Integer idMunicipio, @RequestParam(value = "familiaNumerosa", required = false) String familiaNumerosa,
+			ModelMap model) {
+		familiaNumerosa = (familiaNumerosa == null) ? "0" : "1";
+		AlumnoEntity alumno = new AlumnoEntity(id,nombre,idMunicipio, Integer.parseInt(familiaNumerosa));
+		alumnoRepository.save(alumno);
+		return "vistas/alumnos/actualizarAlumnos";
+	}
+	
 }
