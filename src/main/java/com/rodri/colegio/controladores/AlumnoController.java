@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import com.rodri.colegio.dao.ComboDAO;
+import com.rodri.colegio.dtos.Alumno;
 import com.rodri.colegio.dtos.ComboDTO;
 import com.rodri.colegio.entities.AlumnoEntity;
 import com.rodri.colegio.entities.MunicipiosEntity;
@@ -45,6 +46,11 @@ public class AlumnoController {
 		model.addAttribute("comboMunicipio", combo.comboMunicipios());
 		return "vistas/alumnos/insertarAlumnos";
 	}
+		
+	@GetMapping(value = "listarAlumnos")
+	public String listadoAlumnos(ModelMap model) {
+		return "vistas/alumnos/listaAlumnos";
+	}
 	
 	
 	
@@ -62,6 +68,13 @@ public class AlumnoController {
 		
 		model.addAttribute("comboMunicipio", combo.comboMunicipios());
 		return "vistas/alumnos/insertarAlumnos";
+	}
+	
+	@PostMapping(value = "listarAlumnos")
+	public String listadoAlumnos(@RequestParam(value = "id", required = false) Integer id, @RequestParam("nombre") String nombre, ModelMap model) {
+		List<Alumno> listaAlumnos = alumnoRepository.buscaAlumnosporIDyNombre(id, nombre);
+		model.addAttribute("lista", listaAlumnos);
+		return "vistas/alumnos/listaAlumnos";
 	}
 	
 }
