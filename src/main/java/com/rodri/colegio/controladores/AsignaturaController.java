@@ -33,7 +33,7 @@ public class AsignaturaController {
 	
 	
 	
-	@GetMapping (value = "listadoasignaturas")
+	@GetMapping (value = "listarasignaturas")
 	private String listadoAsignaturas (ModelMap model) {
 		return "vistas/asignaturas/listaAsignaturas";
 	}
