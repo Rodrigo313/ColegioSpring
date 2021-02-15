@@ -13,7 +13,7 @@
 </head>
 <body>
 	<h1>Lista de notas</h1>
-	<%@include file="/menu.html"%>
+	<%@include file="../../menu.html"%>
 
 
 

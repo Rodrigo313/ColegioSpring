@@ -23,8 +23,6 @@ import com.rodri.colegio.repositorios.AsignaturaRepository;
  *
  */
 public class AsignaturaController {
-	@Autowired
-	private ComboDAO combo;
 
 	@Autowired
 	private AsignaturaRepository asignaturaRepository;

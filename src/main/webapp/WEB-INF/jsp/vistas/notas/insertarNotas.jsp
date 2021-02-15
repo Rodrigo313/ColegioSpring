@@ -14,7 +14,7 @@
 </header>
 
 <h1>Insercion de notas</h1>
-<%@include file="/menu.html" %>
+<%@include file="../../menu.html" %>
 
 	<div class="container">
 		<div class="form">
