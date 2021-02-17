@@ -32,6 +32,12 @@ public class AsignaturaDAOImpl implements AsignaturaDAO{
 			return asignaturaRepository.buscaAsignaturaporIdNombre(id, nombre);
 		}
 		
+		@Override
+		public List<Asignaturas> obtenerAsignaturaporIdNombreCursoTasa(Integer id, String nombre, Integer curso, Double tasa) {
+			
+			return asignaturaRepository.buscaAsignaturaporIdNombreCursoTasa(id, nombre, curso, tasa);
+		}
+		
 		
 		//Insertar asignaturas
 		

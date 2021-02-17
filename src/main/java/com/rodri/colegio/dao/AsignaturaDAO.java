@@ -13,6 +13,7 @@ import com.rodri.colegio.dtos.Asignaturas;
  */
 public interface AsignaturaDAO {
 	List<Asignaturas> obtenerAsignaturaporIdyNombre(Integer id, String nombre);
+	List<Asignaturas> obtenerAsignaturaporIdNombreCursoTasa(Integer id, String nombre, Integer curso, Double tasa);
 	Integer insertarasignatura(Integer id, String nombre, Integer curso, Double tasa);
 	Integer actualizarasignatura(Integer id, String nombre, Integer curso, Double tasa);
 	Integer eliminarasignatura(Integer id);

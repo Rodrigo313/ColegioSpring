@@ -44,9 +44,9 @@ public class AsignaturaController {
 	}
 	
 	@PostMapping(value = "listarasignaturas")
-	public String listadoAsignaturas(@RequestParam(value = "id", required = false) Integer id, @RequestParam("nombre") String nombre,
-			@RequestParam("curso") Integer curso,@RequestParam("tasa") Double tasa,ModelMap model) {
-		model.addAttribute("listaAsignatura", asignaturaDAO.obtenerAsignaturaporIdyNombre(id, nombre));
+	public String listadoAsignaturas(@RequestParam(value = "id", required = false) Integer id, @RequestParam(value = "nombre", required = false) String nombre,
+			@RequestParam(value = "curso", required = false) Integer curso,@RequestParam(value = "tasa", required = false) Double tasa,ModelMap model) {
+		model.addAttribute("listaAsignatura", asignaturaDAO.obtenerAsignaturaporIdNombreCursoTasa(id, nombre, curso, tasa));
 		return "vistas/asignaturas/listaAsignaturas";
 	}
 	
