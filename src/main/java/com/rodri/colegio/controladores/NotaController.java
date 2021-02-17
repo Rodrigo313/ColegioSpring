@@ -68,7 +68,7 @@ public class NotaController {
 		model.addAttribute("comboAlumnos", comboDAO.comboAlumnos());
 		model.addAttribute("comboAsignaturas", comboDAO.comboAsignaturas());
 
-		return "vistas/notas/actualizar";
+		return "vistas/notas/modificarNotas";
 	}
 
 	@PostMapping(value = "insertarnotas")
@@ -124,7 +124,7 @@ public class NotaController {
 
 		model.addAttribute("lista", listaNotas);
 
-		return "vistas/notas/actualizar";
+		return "vistas/notas/modificarNotas";
 	}
 
 	@PostMapping(value = "modificarnotas")

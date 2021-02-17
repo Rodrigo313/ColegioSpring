@@ -10,9 +10,9 @@ import com.rodri.colegio.dtos.Asignaturas;
 import com.rodri.colegio.entities.AsignaturasEntity;
 
 public interface AsignaturaRepository extends CrudRepository<AsignaturasEntity, Integer>{
-	@Query(value = "select new com.rodri.colegio.dtos.AsignaturaDTO2 (a.id, a.nombre, a.curso, a.tasa) "
+	@Query(value = "select new com.rodri.colegio.dtos.Asignaturas (a.id, a.nombre, a.curso, a.tasa) "
 			+ "FROM com.rodri.colegio.entities.AsignaturasEntity a "
 			+ "WHERE (a.id LIKE CONCAT('%',:id,'%') or :id is null) "
-			+ "AND a.nombreAsignatura LIKE CONCAT('%',:nombreAsignatura,'%')")
+			+ "AND a.nombre LIKE CONCAT('%',:nombre,'%')")
 			List<Asignaturas>buscaAsignaturaporIdNombre(@Param("id") Integer id, @Param("nombre") String nombre);
 }
