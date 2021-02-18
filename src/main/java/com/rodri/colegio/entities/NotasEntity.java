@@ -37,7 +37,7 @@ public class NotasEntity {
 	
 	@Column(name="fecha")
 	private String fecha;
-	public NotasEntity( AlumnoEntity alumnos, AsignaturasEntity asignaturas, int nota, String fecha,int id) {
+	public NotasEntity(int id, AlumnoEntity alumnos, AsignaturasEntity asignaturas, int nota, String fecha) {
 		super();
 		this.alumnos = alumnos;
 		this.asignaturas = asignaturas;

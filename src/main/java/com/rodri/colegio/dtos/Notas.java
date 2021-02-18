@@ -47,8 +47,7 @@ public class Notas {
 
 
 
-	public Notas(Integer id, Integer idAlumno, Integer idAsignatura, Integer nota, String fecha, String nombreAlumno,
-			String nombreAsignatura) {
+	public Notas(Integer id, Integer idAlumno,String nombreAlumno, Integer idAsignatura,String nombreAsignatura, Integer nota, String fecha ) {
 		super();
 		this.id = id;
 		this.idAlumno = idAlumno;

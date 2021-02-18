@@ -59,7 +59,7 @@ public class CombosDAOImpl implements ComboDAO{
 	private List<ComboDTO> mapeoEntidadAlumnoComboDTO(Iterable<AlumnoEntity> listaEntidadesAlumnos){
 		List<ComboDTO> listaAlumnos = new ArrayList<ComboDTO>();
 		for(AlumnoEntity m: listaEntidadesAlumnos) {
-			listaAlumnos.add(new ComboDTO(m.getIdMunicipio(), m.getNombre()));
+			listaAlumnos.add(new ComboDTO(m.getId(), m.getNombre()));
 		}
 		return listaAlumnos;
 	}
